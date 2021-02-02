@@ -17,3 +17,31 @@ int main(){
 	
 	return 0;
 }
+
+void shuffle(int &a,int &b,int &c,int &d){
+	int temp[]={a,b,c,d};
+	int usedTemp[4];
+	
+	int i=0;
+	do{
+		int rando=rand()%4;
+		bool dupe=false;
+
+		for(int count=0;count<i;count++){
+			if(usedTemp[count]==temp[rando]) dupe=true;
+		}
+
+		if (dupe){
+			continue;
+		}else{
+			usedTemp[i]=temp[rando];
+			i++;
+		}
+
+	}while(i<4);
+	
+	a = usedTemp[0];
+	b = usedTemp[1];
+	c = usedTemp[2];
+	d = usedTemp[3];
+}
